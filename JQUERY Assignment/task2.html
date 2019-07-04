@@ -1,0 +1,29 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>How to detect a textbox's content has changed using jQuery</title>
+    <script src="https://code.jquery.com/jquery-git.js"></script>
+</head>
+
+<body>
+    <form action="demo_form.asp">
+        Firstname:
+        <input type="text" id="name1" name="fname">
+        <br> Lastname:
+        <input type="text" id="name2" name="lname">
+        <br>
+        <input type="submit" value="Submit">
+        <p id="result"></p>
+    </form>
+</body>
+<script>
+    $(document).ready(function() {
+        $("input[type='text'").on('input', function(event){
+            $('#result').append(event.currentTarget.name + ' changed! current value ' + event.currentTarget.value + ' <br>');
+        })
+    });
+</script>
+</html>

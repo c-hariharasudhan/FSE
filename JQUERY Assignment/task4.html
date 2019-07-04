@@ -1,0 +1,34 @@
+<html>
+
+<head>
+    <script src="https://code.jquery.com/jquery-git.js">
+    </script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Add options to a drop-downlist using jQuery.</title>
+</head>
+
+<body>
+    <p>ListofColors:</p>
+    <select id='myColors'>
+        <option value="Red">Red</option>
+        <option value="Green">Green</option>
+        <option value="White">White</option>
+        <option value="Black">Black</option>
+    </select>
+    <input type='button' value='Add' id='add' />
+</body>
+<script>
+    $(document).ready(function() {
+        $('#add').click(function(){
+            for(var i = 0; i < 3;i++){
+                var option = $('<option />', {
+                    value : 'color ' + i,
+                    text : 'color ' + i
+                })
+                $('#myColors').append(option);
+            }
+        })
+    });
+</script>
+</html>
