@@ -1,0 +1,297 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    h4 {color: olive}
+    </style>
+</head>
+
+<body>
+    <H4>Display the current day and time</H4>
+    <button id="btnTask1" onClick="task1()">Task1</button>
+    <div id="task1Container"></div>
+    <hr>
+    <h4>Print the contents of the current window</h4>
+    <button id="btnTask2" onClick="task2()">Task1(Print)</button>
+    <hr>
+    <h4>Get the current date</h4>
+    <button id="btnTask3" onClick="task3()">Task3</button>
+    <div id="task3Container"></div>
+    <hr>
+    <h4>Random integer</h4>
+    <button id="btnTask4" onClick="task4()">Task4</button>
+    <div id="task4Container"></div>
+    <hr>
+    <h4>Calculate multiplication and division</h4>
+    <table>
+        <tr>
+            <td>1st Number</td>
+            <td>
+                <input id='txtFirst' />
+            </td>
+        </tr>
+        <tr>
+            <td>2nd Number</td>
+            <td>
+                <input id='txtSecond' />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button id='btnMultiply' onclick="calculate(true)">Multiply</button>
+                <button id='btnMDivide' onclick="calculate(false)">Divide</button>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align:center">
+                The Result is
+                <div id='task5Container' />
+            </td>
+        </tr>
+    </table>
+    <hr>
+    <h4>Get the website URL (loading page) & print on console</h4>    
+    <button onClick="console.log(location.href);">Task6</button>
+    <hr /> 
+    <h4>Capitalize the first letter of each word of a given string</h4>
+    Sentense :
+    <input id="txtSentense" />
+    <button id='btnTask7' onclick="task7()">Task7</button>
+    <div id='task7Container' />
+    <hr /> 
+    <h4>Check if a given string contains equal number of p's and s's present</h4>
+    input string :
+    <input id="txtTask8" />
+    <button onclick="task8()">Task8</button>
+    <div>Output:
+        <div id='task8Container'></div>
+    </div>
+    <hr /> 
+    <h4>Create a new string of 4 copies of the last 3 characters of a given original string</h4>
+    input string :
+    <input id="txtTask9" />
+    <button onclick="task9()">Task9</button>
+    <div>Output:
+        <div id='task9Container'></div>
+    </div>
+    <hr />
+    <h4>Swap the first and last elements ofa given array of integers</h4>
+    Input array
+    <div id="task10Input"></div>
+    <button onclick="task10()">Task10(Swap)</button>
+    <div>Result array
+        <div id="task10Container"></div>
+    </div>
+    <hr />
+    <h4>Reverse a number</h4>
+    input string :
+    <input id="txtTask11" />
+    <button onclick="task11()">Task11</button>
+    <div>Output:
+        <div id='task11Container'></div>
+    </div>
+    <hr /> 
+    <h4>Returns a passed string with letters in alphabetical order</h4>
+    input string :
+    <input id="txtTask12" />
+    <button onclick="task12()">Task12</button>
+    <div>Output:
+        <div id='task12Container'></div>
+    </div>
+    <hr /> 
+    <h4>Find the longest word within the string</h4>
+    input string :
+    <input id="txtTask13" />
+    <button onclick="task13()">Task13</button>
+    <div>Output:
+        <div id='task13Container'></div>
+    </div>
+    <hr />
+    <h4>Extract unique characters from a string</h4>
+    input string :
+    <input id="txtTask13a" />
+    <button onclick="task13a()">Task13a</button>
+    <div>Output:
+        <div id='task13aContainer'></div>
+    </div>
+    <hr />
+    <h4>Get the number of occurrences of each letter in specified string</h4>
+    input string :
+    <input id="txtTask13b" />
+    <button onclick="task13b()">Task13b</button>
+    <div>Output:
+        <div id='task13bContainer'></div>
+    </div>
+    <hr />
+    <h4>Generates a string id (specified length) of random characters</h4>
+    Length :
+    <input id="txtTask14" />
+    <button onclick="task14()">Task14</button>
+    <div>Output:
+        <div id='task14Container'></div>
+    </div>
+    <hr />
+    <h4>Find longest substring in a given a string without repeating characters</h4>
+    Input string :
+    <input id="txtTask15" />
+    <button onclick="task15()">Task15</button>
+    <div>Longest substring:
+        <div id='task15Container'></div>
+    </div>
+    <hr />
+</body>
+<script type="text/javascript">
+    var task10Input = [25, 14, 87, 65];
+    document.getElementById('task10Input').innerHTML = task10Input.toString();
+    function task1() {
+        var dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        var d = new Date();
+        var result = 'Today is ' + dayNames[d.getDay()];
+        var hours = d.getHours();
+        var mins = d.getMinutes();
+        var secs = d.getSeconds();
+        var ampmStr = hours > 11 ? 'PM' : 'AM';
+        if (hours > 12) {
+            hours = hours - 12;
+        }
+        result += '<br /> Current Time is ' + hours + ' ' + ampmStr + ' : ' + mins + ' : ' + secs;
+        document.getElementById('task1Container').innerHTML = result;
+    }
+    function task2() {
+        window.print();
+    }
+    function task3() {
+        var d = new Date();
+        var date = d.getDate();
+        date = date < 10 ? '0' + date : date;
+        var month = d.getMonth() + 1;
+        month = month < 10 ? '0' + month : month;
+        var year = d.getFullYear();
+        var result = 'dd/mm/yyyy => ' + d.toLocaleDateString('en-GB');
+        result += '<br /> mm-dd-yyyy => ' + month + '-' + date + '-' + year;
+        result += '<br /> mm/dd/yyyy => ' + month + '/' + date + '/' + year;
+        result += '<br /> dd-mm-yyyy => ' + date + '-' + month + '-' + year;
+        document.getElementById('task3Container').innerHTML = result;
+    }
+    function task4() {
+        var random = Math.floor(Math.random() * 10) + 1
+        var input = prompt('Guess the number ', 1)
+        console.log('random => ' + random + ' input => ' + input);
+        document.getElementById('task3Container').innerHTML = random == input ? "Good Work" : "Not matched ";
+    }
+    function calculate(multiply) {
+        var first = parseInt(document.getElementById('txtFirst').value);
+        var second = parseInt(document.getElementById('txtSecond').value);
+        document.getElementById('task5Container').innerHTML = multiply ? first * second : first / second;
+    }
+    function task7() {
+        var input = document.getElementById('txtSentense').value;
+        var result = input.toString().replace(/\w\S*/g, (txt) => { return txt.charAt(0).toUpperCase() + txt.substr(1); })
+        document.getElementById('task7Container').innerHTML = result;
+    }
+    function task8() {
+        var input = document.getElementById('txtTask8').value;
+        var pMatches = input.match(/p/gi).length;
+        var sMatches = input.match(/s/gi).length;
+        document.getElementById('task8Container').innerHTML = pMatches == sMatches ? 'true' : 'false';
+    }
+    function task9() {
+        var input = document.getElementById('txtTask9').value.trim();
+        if (input.length < 3) {
+            document.getElementById('task9Container').innerHTML = 'false';
+            return;
+        }
+        var str = input.substr(input.length - 3);
+        document.getElementById('task9Container').innerHTML = str.repeat(4);
+    }
+
+    function task10() {
+        var result = task10Input.slice();
+        [result[0], result[result.length - 1]] = [result[result.length - 1], result[0]]
+        document.getElementById('task10Container').innerHTML = result.toString();
+    }
+    function task11(){
+        var input = document.getElementById('txtTask11').value;
+        var result = input.toString().split('').reverse();
+        document.getElementById('task11Container').innerHTML = result.join('');
+    }
+    function task12(){
+        var input = document.getElementById('txtTask12').value;
+        var result = input.toString().split('');
+        result.sort();
+        document.getElementById('task12Container').innerHTML = result.join('');
+    }
+    function task13(){
+        var input = document.getElementById('txtTask13').value;
+        var splitArray = input.toString().split(' ');
+        var result = splitArray[0]
+        splitArray.forEach(element => {
+            if(element.length > result.length){
+                result = element;
+            }
+        });
+        document.getElementById('task13Container').innerHTML = result;
+    }
+    function task13a(){
+        var input = document.getElementById('txtTask13a').value;
+        var splitStr = input.toString().split('');
+        var uniqueStr = [];
+        splitStr.forEach(element => {
+            if(uniqueStr.indexOf(element) == -1)
+            {
+                uniqueStr.push(element);
+            }
+        });
+        document.getElementById('task13aContainer').innerHTML = uniqueStr.join('');
+    }
+    function task13b() {
+        var input = document.getElementById('txtTask13b').value;
+        var result = {};
+        input.replace(/\S/g, (chr) => { result[chr] = (isNaN(result[chr]) ? 1 : result[chr] + 1);});
+        document.getElementById('task13bContainer').innerHTML = JSON.stringify(result);
+    }
+    function task14(){
+        var str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        var length = document.getElementById('txtTask14').value;
+        var splitStr = str.toString().split('');
+        var randomStr = "";
+        
+        for (var index = 0; index < length; index++) {            
+            randomStr += splitStr[Math.floor(Math.random() * splitStr.length)]
+        }        
+        document.getElementById('task14Container').innerHTML = randomStr;
+    }
+    function task15(){
+        var input = document.getElementById('txtTask15').value;
+        var splitStr = input.split('');
+        var currentChar = '';
+        var tempStr = '';
+        var longStr = '';
+        var temp = {};
+        for(var index = 0; index < splitStr.length; index++){
+            currentChar = splitStr[index];
+            if(!temp[currentChar]){
+                tempStr += currentChar;
+                temp[currentChar] = {index: index};
+            }
+            else{
+                if(longStr.length <= tempStr.length) longStr = tempStr;
+                var duplicatePrevIndex = temp[currentChar].index;
+                var subStrPriorDuplicate = input.substring(duplicatePrevIndex + 1, index);
+                tempStr = subStrPriorDuplicate + currentChar;
+                temp = {};
+                for(var j = duplicatePrevIndex + 1; j <= index; j++){
+                    temp[input.charAt(j)] = {index : j};                    
+                }
+            }
+        }
+        longStr = longStr.length > tempStr.length ? longStr : tempStr;             
+        document.getElementById('task15Container').innerHTML = longStr;
+    }
+</script>
+
+</html>
